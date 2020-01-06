@@ -9,9 +9,9 @@ This project is attempting to solve the problem presented in the [Udacity](https
 We will use a Deep Q Network (DQN) to train the agent to solve the problem, starting from a randomly initialized state-action, we will attempt to maximize a reward function (Q), which is a function of both the state of the environment and and action provided for that state.
 
 To achive this, we will require:
--A sequentional deep neural network that learns the optimal actions based on our rewards function and given our current state (local q network)
--A sequential deep nerual network that keeps its weights fixed for a determined amount of iterations, and is used to determine estimted rewards from a successive state given the current action (target q network)
--A replay buffer that stores prior experiences as our agent learns from the environment
+- A sequentional deep neural network that learns the optimal actions based on our rewards function and given our current state (local q network)
+- A sequential deep nerual network that keeps its weights fixed for a determined amount of iterations, and is used to determine estimted rewards from a successive state given the current action (target q network)
+- A replay buffer that stores prior experiences as our agent learns from the environment
 
 Our program acts upon the environment by initially choosing actions for the given state more-or-less at random, and then determines the reward, and next state given the action chosen.  This "experience" is then stored in the replay buffer.  We then update the current state to the next state determined from the chosen action and repeat this process.
 
@@ -29,9 +29,9 @@ Through applying the above learning agent, we are able to achieve a maximal scor
 
 ## Areas for improvement
 
--More exhaustive hyperparameter tuning
--Implementation of [Prioritized Experience Replay](https://arxiv.org/abs/1511.05952) which weights replay experiences by the loss parameter associated with them, and uses these weights to generate our sample batch while learning
--Implementation of [Dueling Q Networks](https://arxiv.org/abs/1511.06581) which learns separately on state values and action values and combines the results from learning.  This could potentially more robustly identify our reward function.
+- More exhaustive hyperparameter tuning
+- Implementation of [Prioritized Experience Replay](https://arxiv.org/abs/1511.05952) which weights replay experiences by the loss parameter associated with them, and uses these weights to generate our sample batch while learning
+- Implementation of [Dueling Q Networks](https://arxiv.org/abs/1511.06581) which learns separately on state values and action values and combines the results from learning.  This could potentially more robustly identify our reward function.
 
 
 

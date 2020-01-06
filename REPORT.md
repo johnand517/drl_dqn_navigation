@@ -25,7 +25,7 @@ Through applying the above learning agent, we are able to achieve a maximal scor
 
 ![Epoch Scores](/common/images/score_by_epoch.png "Epoch Scores")
 
-The NN model weights from training are located in the /trained directory in this repository, and are saved as a pytorch state_dict in OrderedDict format.
+The NN model weights from training are located in the ./trained subdirectory in this repository, and are saved as a pytorch state_dict in OrderedDict format.
 
 ## Areas for improvement
 

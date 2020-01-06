@@ -1,3 +1,3 @@
-# drl_dqn_navigation
+# Deep Reinforcement Learning - Deep Q Network - Navigation
 
-# Description
+## Project Description Description

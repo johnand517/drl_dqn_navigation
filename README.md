@@ -25,7 +25,7 @@ Hyperparameters used for this approach are provided in the hyperparameters.py fi
 
 ## Current results
 
-Through applying the above learning agent, we are able to achieve a maximal score for a given run of just under 17 bananas.  The results of our scores through successive training episodes are as shown:
+Through applying the above learning agent, we are able to achieve a maximal score for a given run of over 17 net yellow bananas when averaged over the prior 100 episodes at a given epoch.  We converage at this result after 1250 epochs.  The results of our scores through successive training episodes are as shown:
 
 ## Areas for improvement
 

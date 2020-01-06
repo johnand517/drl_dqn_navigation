@@ -1,6 +1,12 @@
 # Deep Reinforcement Learning - Deep Q Network - Unity Navigation Project
 
-## Environment Set Up
+## Project Environment Description
+
+This project is attempting to solve the problem presented in the [Udacity](https://www.udacity.com/) Deep Reinforcement Learning (DRL) course in the Artificial Intelligent program by setting up a DRL agent to train the computer to maximize the score provided by the environment.  
+
+The problem uses [Unity's ML Agents](https://github.com/Unity-Technologies/ml-agents/blob/master/) to provide an environment in which there are both yellow and blue bananas on a 2D surface in a 3D space.  The objective is to collect as many yellow bananas as possible while avoiding the blue bananas before the game ends after a fixed amount of time.  You interact with this environment in first person, and have 4 possible actions (move forwards, move backwards, turn clockwise, turn counter-clockwise) and a default action of moving forward is provided if no input is given.  
+
+## Learning Environment Set Up
 
 General instructions are available on the [Udacity github page for this project](https://github.com/udacity/deep-reinforcement-learning/tree/master/p1_navigation).
 

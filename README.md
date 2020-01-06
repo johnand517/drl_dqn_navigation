@@ -48,7 +48,7 @@ activate drlnd
 ```
 2. Install dependecies
 ```
-
+# Install general dependencies for Udacity deep-reinforcement-learning projects
 git clone https://github.com/udacity/deep-reinforcement-learning.git
 cd deep-reinforcement-learning/python
 pip install .

@@ -15,7 +15,9 @@ As we march through this process, we use a decaying greedy-epsilon parameter tha
 
 We also include Double DQN as part of our learning process, which stabilizes our learning by calculating our estimated best action from the next state using the local q network, and using those actions to calculate estimated next state reward from our target q network see [ref: Double DQN Paper](https://arxiv.org/abs/1509.06461).
 
-Hyperparameters used for this approach are provided in the hyperparameters.py file, and our neural network configuration is provided in the models.py module.
+The chosen neural network configuration for both our local q network, and target q network is a MLP with two hidden layers (default number of nodes 128 -> 64).  We use a dropout of 20% in each hidden layer, and each hidden layer uses a RELU activation function.
+
+Hyperparameters used for this approach are provided in the hyperparameters.py file
 
 ## Current results
 

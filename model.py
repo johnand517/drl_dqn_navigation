@@ -2,6 +2,9 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 
+n1 = 256  # Number of nodes in first layer of neural network
+n2 = 128  # Number of nodes in 2nd layer of neural network
+
 
 class DQN(nn.Module):
     """Actor (Policy) Model"""
@@ -15,13 +18,14 @@ class DQN(nn.Module):
         """
         super(DQN, self).__init__()
         self.seed = torch.manual_seed(seed)
-        self.fc1 = nn.Linear(state_size, 256)
+        # First layer with dropout
+        self.fc1 = nn.Linear(state_size, n1)
         self.fc1_drop = nn.Dropout(p=0.2)
-        self.fc2 = nn.Linear(256, 128)
+        # Second layer with dropout
+        self.fc2 = nn.Linear(n1, n2)
         self.fc2_drop = nn.Dropout(p=0.2)
-        #self.fc3 = nn.Linear(32,64)
-        #self.fc3_drop = nn.Dropout(p=0.2)
-        self.fc4 = nn.Linear(128, action_size)
+        # Output layer
+        self.fc3 = nn.Linear(n2, action_size)
 
     def forward(self, state):
         """Build a network to map state to action values
@@ -29,7 +33,7 @@ class DQN(nn.Module):
         :param state: (array_like) the current state
         :return: (array_like) action outcomes from model
         """
+        # Use Relu activation functions for hidden layers
         x = F.relu(self.fc1_drop(self.fc1(state)))
         x = F.relu(self.fc2_drop(self.fc2(x)))
-        #x = F.relu(self.fc3_drop(self.fc3(x)))
-        return self.fc4(x)
+        return self.fc3(x)

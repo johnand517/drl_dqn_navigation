@@ -39,6 +39,9 @@ class Agent:
         # Initialize time step dictating when to pull experiences from memory
         self.time_step = 0
 
+        # Initialize the target update counter to determine when to refresh target weights from local
+        self.tu_step = 0
+
     def step(self, state, action, reward, next_state, done):
         """Increments
 
@@ -59,12 +62,18 @@ class Agent:
             if len(self.memory) > hp.batch_size:
                 experiences = self.memory.sample()
                 self.learn(experiences, hp.Gamma)
+                self.tu_step = (self.tu_step+1) % hp.iter_target_update
+
+        # Do a soft update of our target network if we have achieved desired number of learning steps
+        if self.tu_step == 0:
+            self.soft_update(self.dqn_local, self.dqn_target, hp.tau)
 
     def act(self, state, epsilon=0.0):
         """Returns an action given the provided state
 
         :param state: (array_like) current state
         :param epsilon: (float) epsilon-greedy hyperparmeter
+
         :return: an action value
         """
         state = torch.from_numpy(state).float().unsqueeze(0).to(device)
@@ -82,7 +91,7 @@ class Agent:
     def learn(self, exps, gamma):
         """ Update Q values using experiences
 
-        :param exp: (array_like) list of experience tuples
+        :param exps: (array_like) list of experience tuples
         :param gamma: (float) hyperparameter discount factor
         """
         states, actions, rewards, next_states, dones = exps
@@ -104,9 +113,6 @@ class Agent:
         self.optimizer.zero_grad()
         loss.backward()
         self.optimizer.step()
-
-        # Update target network
-        self.soft_update(self.dqn_local, self.dqn_target, hp.tau)
 
     def soft_update(self, local_model, target_model, tau):
         """Updates DQN model parameters

@@ -4,7 +4,7 @@
 
 This project is attempting to solve the problem presented in the [Udacity](https://www.udacity.com/) Deep Reinforcement Learning (DRL) course in the Artificial Intelligent program.  The problem uses [Unity's ML Agents](https://github.com/Unity-Technologies/ml-agents/blob/master/) to provide an environment in which there are both yellow and blue bananas on a 2D surface in a 3D space.  The objective is to collect as many yellow bananas as possible while avoiding the blue bananas.  You interact with this environment in first person, and can move forward and backwards and turn clockwise or counter clockwise.  Through setting up a DRL agent, the objective for this code is to set up an agent that can train the computer to efficiently solve this problem through only knowledge of the state of the environment and the actions available.
 
-## Project Objectives
+## Project Objectives and Setup
 
 We will use a Deep Q Network (DQN) to train the agent to solve the problem, starting from a randomly initialized state-action, we will attempt to maximize a reward function (Q), which is a function of both the state of the environment and and action provided for that state.
 
@@ -20,6 +20,12 @@ Learning from the environment happens by chosing a sample of experiences from th
 As we march through this process, we use a decaying greedy-epsilon parameter that is set to start by favoring randomly chosen actions during initial training, and slowly diminishing to favor the best possible action as we complete more training steps. 
 
 We also include Double DQN as part of our learning process, which stabilizes our learning by calculating our estimated best action from the next state using the local q network, and using those actions to calculate estimated next state reward from our target q network see [ref: Double DQN Paper](https://arxiv.org/abs/1509.06461).
+
+Hyperparameters used for this approach are provided in the hyperparameters.py file, and our neural network configuration is provided in the models.py module.
+
+## Current results
+
+Through applying the above learning agent, we are able to achieve a maximal score for a given run of just under 17 bananas.  The results of our scores through successive training episodes are as shown:
 
 ## Areas for improvement
 

@@ -31,7 +31,7 @@ pip install gym
 conda install pytorch torchvision cudatoolkit=10.1 -c pytorch
 
 # Install the old version of Unity ml-agents
-pip install pip install unityagents
+pip install unityagents
 
 # Install the ipython kernel package
 conda install ipykernel
